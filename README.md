@@ -28,7 +28,7 @@ Create a `.env` file in the project root (or set the variable in your shell) wit
 TASK_TRACKER_SAVE_FILE_PATH="DIRECTORY_PATH/FILE_NAME.json"
 ```
 
-- If `TASK_TRACKER_SAVE_FILE_PATH` is not set, the default file is `mytasks`.
+- If `TASK_TRACKER_SAVE_FILE_PATH` is not set, the default path is `./tasks.json`.
 - The program will create the file automatically when you save tasks.
 
 ## Running the Program 🚀
