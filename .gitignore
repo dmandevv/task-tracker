@@ -33,3 +33,7 @@ go.work.sum
 
 # Task tracker data file
 *.json
+
+#Go binary files
+task-tracker
+
