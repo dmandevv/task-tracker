@@ -25,7 +25,7 @@ Task Tracker persists tasks to a JSON file. By default the app uses `mytasks` in
 Create a `.env` file in the project root (or set the variable in your shell) with the following content:
 
 ```env
-TASK_TRACKER_SAVE_FILE_PATH="ENTER_FILEPATH_HERE"
+TASK_TRACKER_SAVE_FILE_PATH="DIRECTORY_PATH/FILE_NAME.json"
 ```
 
 - If `TASK_TRACKER_SAVE_FILE_PATH` is not set, the default file is `mytasks`.
