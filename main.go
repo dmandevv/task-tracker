@@ -8,6 +8,8 @@ import (
 	"strings"
 	"time"
 
+	"github.com/joho/godotenv"
+
 	"github.com/dmandevv/task-tracker/internal/commands"
 	"github.com/dmandevv/task-tracker/internal/config"
 	"github.com/dmandevv/task-tracker/internal/json"
@@ -15,6 +17,11 @@ import (
 )
 
 func main() {
+	err := godotenv.Load("task-tracker.env")
+	if err != nil {
+		fmt.Println("No .env file found, proceeding without it.")
+	}
+
 	cfg, err := json.LoadTasksFromFile()
 	if err != nil {
 		fmt.Println("No existing task file found, starting fresh.")

@@ -48,7 +48,7 @@ func LoadTasksFromFile() (*config.Config, error) {
 func getFilePath() string {
 	filePath := os.Getenv("SAVE_FILE_PATH")
 	if filePath == "" {
-		filePath = "task_tracker.json"
+		filePath = "./task_tracker.json"
 	}
 	return filePath
 }
