@@ -1,6 +1,7 @@
 package commands
 
 import (
+	"fmt"
 	"time"
 
 	"github.com/dmandevv/task-tracker/internal/config"
@@ -17,4 +18,5 @@ func AddTask(cfg *config.Config, description string) {
 	}
 	cfg.Tasks = append(cfg.Tasks, newTask)
 	cfg.NextID++
+	fmt.Printf("%v added\n", description)
 }

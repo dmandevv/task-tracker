@@ -11,6 +11,7 @@ import (
 func UpdateTask(cfg *config.Config, id int, description string) error {
 	for index, task := range cfg.Tasks {
 		if task.ID == id {
+			fmt.Printf("%v updated to %v\n", cfg.Tasks[index].Description, description)
 			cfg.Tasks[index].Description = description
 			cfg.Tasks[index].UpdatedAt = time.Now()
 			return nil
@@ -24,6 +25,7 @@ func MarkTask(cfg *config.Config, id int, status task.Status) error {
 		if task.ID == id {
 			cfg.Tasks[index].Status = status
 			cfg.Tasks[index].UpdatedAt = time.Now()
+			fmt.Printf("%v marked as %s\n", cfg.Tasks[index].Description, status.String())
 			return nil
 		}
 	}

@@ -51,7 +51,6 @@ CLI:
 			}
 			desc := strings.Join(cmds[1:], " ")
 			commands.AddTask(cfg, desc)
-			fmt.Println("Task added")
 		case "update":
 			if len(cmds) < 3 {
 				fmt.Println("Please provide a task ID and new description")
@@ -63,12 +62,10 @@ CLI:
 				fmt.Println("Invalid task ID")
 				continue CLI
 			}
-			newDesc := cmds[2]
+			newDesc := strings.Join(cmds[2:], " ")
 			err = commands.UpdateTask(cfg, idInt, newDesc)
 			if err != nil {
 				fmt.Println(err)
-			} else {
-				fmt.Println("Task updated")
 			}
 		case "delete":
 			if len(cmds) < 2 {
@@ -84,8 +81,6 @@ CLI:
 			err = commands.DeleteTask(cfg, idInt)
 			if err != nil {
 				fmt.Println(err)
-			} else {
-				fmt.Println("Task deleted")
 			}
 		case "mark-in-progress":
 			if len(cmds) < 2 {
@@ -101,8 +96,6 @@ CLI:
 			err = commands.MarkTask(cfg, idInt, IN_PROGRESS)
 			if err != nil {
 				fmt.Println(err)
-			} else {
-				fmt.Println("Task marked as in-progress")
 			}
 		case "mark-done":
 			if len(cmds) < 2 {
@@ -118,8 +111,6 @@ CLI:
 			err = commands.MarkTask(cfg, idInt, DONE)
 			if err != nil {
 				fmt.Println(err)
-			} else {
-				fmt.Println("Task marked as done")
 			}
 		case "list":
 			var filteredTasks []Task
@@ -171,33 +162,31 @@ CLI:
 }
 
 func displayHelp() {
-	fmt.Println("\nCOMMANDS")
-
-	fmt.Println("Display this help message")
+	fmt.Println("\nDisplay this help message:")
 	fmt.Println("help")
 
-	fmt.Println("Add a new task")
+	fmt.Println("\nAdd a new task:")
 	fmt.Println("add <task-description>")
 
-	fmt.Println("Update new task")
+	fmt.Println("\nUpdate new task:")
 	fmt.Println("update <task-id> <new-task-description>")
 
-	fmt.Println("Delete a task")
+	fmt.Println("\nDelete a task:")
 	fmt.Println("delete <task-id>")
 
-	fmt.Println("Change a task's status")
+	fmt.Println("\nChange a task's status:")
 	fmt.Println("mark-in-progress <task-id>")
 	fmt.Println("mark-done <task-id>")
 
-	fmt.Println("List all tasks")
+	fmt.Println("\nList all tasks:")
 	fmt.Println("list")
 
-	fmt.Println("List tasks by status")
+	fmt.Println("\nList tasks by status:")
 	fmt.Println("list todo")
 	fmt.Println("list in-progress")
 	fmt.Println("list done")
 
-	fmt.Println("Save data and exit program")
+	fmt.Println("\nSave data and exit program:")
 	fmt.Println("exit")
 
 }

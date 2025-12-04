@@ -14,7 +14,7 @@ func SaveTasksToFile(cfg *config.Config) error {
 		return fmt.Errorf("Error marshaling to JSON: %v", err)
 	}
 
-	file, err := os.Create("tasks.json")
+	file, err := os.Create(getFilePath())
 	if err != nil {
 		return fmt.Errorf("Error creating json file: %v", err)
 	}
@@ -29,7 +29,7 @@ func SaveTasksToFile(cfg *config.Config) error {
 }
 
 func LoadTasksFromFile() (*config.Config, error) {
-	file, err := os.Open("tasks.json")
+	file, err := os.Open(getFilePath())
 	if err != nil {
 		return nil, fmt.Errorf("Error opening json file: %v", err)
 	}
@@ -43,4 +43,12 @@ func LoadTasksFromFile() (*config.Config, error) {
 	}
 
 	return &cfg, nil
+}
+
+func getFilePath() string {
+	filePath := os.Getenv("SAVE_FILE_PATH")
+	if filePath == "" {
+		filePath = "task_tracker.json"
+	}
+	return filePath
 }
