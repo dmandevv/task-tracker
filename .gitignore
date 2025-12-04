@@ -25,7 +25,7 @@ go.work
 go.work.sum
 
 # env file
-.env
+task-tracker.env
 
 # Editor/IDE
 # .idea/
