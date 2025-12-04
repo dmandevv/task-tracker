@@ -17,7 +17,7 @@ import (
 )
 
 func main() {
-	err := godotenv.Load("task-tracker.env")
+	err := godotenv.Load()
 	if err != nil {
 		fmt.Println("No .env file found, proceeding without it.")
 	}

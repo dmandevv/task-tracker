@@ -20,15 +20,15 @@ go build -o task-tracker
 
 ## Setup ⚙️
 
-Task Tracker persists tasks to a JSON file. By default the app uses `task_tracker.json` in the current working directory. You can override the path using the `TASK_TRACKER_SAVE_FILE_PATH` environment variable.
+Task Tracker persists tasks to a JSON file. By default the app uses `mytasks` in the current working directory. You can override the path using the `TASK_TRACKER_SAVE_FILE_PATH` environment variable.
 
-Create a `task-tracker.env` file in the project root (or set the variable in your shell) with the following content:
+Create a `.env` file in the project root (or set the variable in your shell) with the following content:
 
 ```env
-TASK_TRACKER_SAVE_FILE_PATH=./my_tasks.json
+TASK_TRACKER_SAVE_FILE_PATH="ENTER_FILEPATH_HERE"
 ```
 
-- If `TASK_TRACKER_SAVE_FILE_PATH` is not set, the default file is `task_tracker.json`.
+- If `TASK_TRACKER_SAVE_FILE_PATH` is not set, the default file is `mytasks`.
 - The program will create the file automatically when you save tasks.
 
 ## Running the Program 🚀
@@ -129,17 +129,3 @@ All commands are interactive at the prompt. Replace values in angle brackets.
 	- `internal/commands/list.go` — `GetTasksByFilter(cfg, status)`
 	- `internal/commands/update.go` — `UpdateTask(cfg, id, description)` and `MarkTask(cfg, id, status)`
 	- `internal/commands/delete.go` — `DeleteTask(cfg, id)`
-
-## Quick tips ✅
-
-- To change save location for one session:
-
-```sh
-SAVE_FILE_PATH=./data/tasks.json ./task-tracker
-```
-
-- To use the installed binary (Go bin path must be in `PATH`):
-
-```sh
-task-tracker
-```

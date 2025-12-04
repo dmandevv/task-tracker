@@ -5,6 +5,7 @@ import (
 )
 
 type Config struct {
-	Tasks  []task.Task `json:"tasks"`
-	NextID int         `json:"next_id"`
+	Tasks        []task.Task `json:"tasks"`
+	NextID       int         `json:"next_id"`
+	SaveFilePath string      `json:"save_file_path"`
 }

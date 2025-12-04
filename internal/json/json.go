@@ -46,9 +46,12 @@ func LoadTasksFromFile() (*config.Config, error) {
 }
 
 func getFilePath() string {
-	filePath := os.Getenv("SAVE_FILE_PATH")
-	if filePath == "" {
-		filePath = "./task_tracker.json"
+	saveFilePath := os.Getenv("TASK_TRACKER_SAVE_FILE_PATH")
+	if saveFilePath == "" {
+		fmt.Println("Environment variable TASK_TRACKER_SAVE_FILE_PATH is not set or empty, using default 'mytasks.json'.")
+		return "./tasks.json"
+	} else {
+		fmt.Printf("Using save file path from environment: %s\n", saveFilePath)
+		return saveFilePath
 	}
-	return filePath
 }
