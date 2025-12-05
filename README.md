@@ -1,6 +1,7 @@
 # Task Tracker 📝
 
-A simple command-line task management application written in Go.
+A simple command-line task management application written in Go. It was created as part of the <https://roadmap.sh/projects/task-tracker> course to practice CLIs
+and Filesystems.
 
 ## Installation 📦
 
